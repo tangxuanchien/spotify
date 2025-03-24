@@ -11,51 +11,7 @@
 </head>
 <body>
     <!-- Sidebar -->
-    <div class="sidebar">
-        <div class="logo">Spotify</div>
-        <a href="#" class="sidebar-link active">
-            <i class="bi bi-house-door-fill"></i>
-            <span>Trang chủ</span>
-        </a>
-        <a href="#" class="sidebar-link">
-            <i class="bi bi-search"></i>
-            <span>Tìm kiếm</span>
-        </a>
-        <a href="#" class="sidebar-link">
-            <i class="bi bi-collection"></i>
-            <span>Thư viện</span>
-        </a>
-        <div class="divider"></div>
-        <a href="#" class="sidebar-link">
-            <i class="bi bi-plus-square"></i>
-            <span>Tạo playlist</span>
-        </a>
-        <a href="#" class="sidebar-link">
-            <i class="bi bi-heart"></i>
-            <span>Bài hát đã thích</span>
-        </a>
-        <div class="divider"></div>
-        <div style="padding: 0 12px; color: var(--text-secondary); font-size: 14px; margin-bottom: 16px;">Playlist</div>
-        <a href="#" class="sidebar-link">
-            <span>Nhạc Việt Hot</span>
-        </a>
-        <a href="#" class="sidebar-link">
-            <span>Top Hits 2023</span>
-        </a>
-        <a href="#" class="sidebar-link">
-            <span>Chill & Relax</span>
-        </a>
-        <a href="#" class="sidebar-link">
-            <span>Workout Mix</span>
-        </a>
-        <a href="#" class="sidebar-link">
-            <span>K-Pop Hits</span>
-        </a>
-    </div>
-
-    <x-sidebar>
-        <x-slot:logo_name>Spotify</x-slot:logo_name>
-    </x-sidebar>
+    @include('layouts.sidebar')
 
     <!-- Main Content -->
     <div class="main-content">
@@ -222,40 +178,7 @@
     </div>
 
     <!-- Player Bar -->
-    <div class="player-bar">
-        <div class="now-playing">
-            <img src="/placeholder.svg?height=56&width=56" alt="Now Playing">
-            <div class="track-info">
-                <div class="track-name">Có Chắc Yêu Là Đây</div>
-                <div class="artist-name">Sơn Tùng M-TP</div>
-            </div>
-            <i class="bi bi-heart ms-3" style="color: var(--text-secondary); cursor: pointer;"></i>
-        </div>
-
-        <div class="player-controls">
-            <div class="control-buttons">
-                <i class="bi bi-shuffle control-btn"></i>
-                <i class="bi bi-skip-start-fill control-btn"></i>
-                <i class="bi bi-play-circle-fill control-btn main"></i>
-                <i class="bi bi-skip-end-fill control-btn"></i>
-                <i class="bi bi-repeat control-btn"></i>
-            </div>
-            <div class="progress-container">
-                <div class="progress-time">1:23</div>
-                <div class="progress-bar">
-                    <div class="progress"></div>
-                </div>
-                <div class="progress-time">3:45</div>
-            </div>
-        </div>
-
-        <div class="volume-controls">
-            <i class="bi bi-volume-up volume-icon"></i>
-            <div class="volume-bar">
-                <div class="volume"></div>
-            </div>
-        </div>
-    </div>
+    @include('layouts.playerbar')
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

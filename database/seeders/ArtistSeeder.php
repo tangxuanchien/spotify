@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Artist;
+use DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -13,10 +15,10 @@ class ArtistSeeder extends Seeder
      */
     public function run(): void
     {
-        Artist::factory()->create([
-            'name' => 'Tang Xuan Chien',
-            'email' => 'chien@gmail.com',
-            'password'=> Hash::make('123456'),
+        DB::table('artists')->insert([
+            ['name' => 'Dangrangto','description' => 'Rapper trẻ đang lên của Rap Việt', 'image_url'=> 'drt.img'],
+            ['name' => 'Hòa Minzy','description' => 'Rapper trẻ đang lên của Rap Việt', 'image_url'=> 'drt.img'],
+            ['name' => 'Sơn Tùng MTP','description' => 'Rapper trẻ đang lên của Rap Việt', 'image_url'=> 'drt.img']
         ]);
     }
 }

@@ -16,10 +16,12 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Tang Xuan Chien',
-            'email' => 'chien@gmail.com',
-            'password'=> Hash::make('123456'),
-        ]);
+        // User::factory()->create([
+        //     'name' => 'Tang Xuan Chien',
+        //     'email' => 'chien@gmail.com',
+        //     'password'=> Hash::make('123456'),
+        // ]);
+
+        $this->call(ArtistSeeder::class);
     }
 }

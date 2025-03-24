@@ -1,6 +1,6 @@
 <div class="sidebar">
-    <div class="logo">{{ $logo_name }}</div>
-    <a href="#" class="sidebar-link active">
+    <div class="logo">Spotify</div>
+    <a href="/" class="sidebar-link active">
         <i class="bi bi-house-door-fill"></i>
         <span>Trang chủ</span>
     </a>
