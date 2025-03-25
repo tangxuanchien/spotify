@@ -28,7 +28,7 @@
                 <div class="user-avatar">
                     <i class="bi bi-person"></i>
                 </div>
-                <span>User</span>
+                <span>tangxchien</span>
                 <i class="bi bi-caret-down-fill ms-2"></i>
             </div>
         </div>
@@ -38,28 +38,28 @@
         <div class="row mb-5">
             <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
                 <div class="card">
-                    <img src="/placeholder.svg?height=180&width=180" alt="Playlist">
+                    <img src="{{asset('assets/images/playlists/hot-hit-vn.jpg')}}" alt="Playlist">
                     <div class="card-title">Nhạc Việt Hot</div>
                     <div class="card-text">Những bài hát Việt Nam thịnh hành nhất hiện nay</div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
                 <div class="card">
-                    <img src="/placeholder.svg?height=180&width=180" alt="Playlist">
+                    <img src="{{asset('assets/images/playlists/hiphop-viet.jpg')}}" alt="Playlist">
                     <div class="card-title">Chill & Relax</div>
                     <div class="card-text">Thư giãn với những giai điệu nhẹ nhàng</div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
                 <div class="card">
-                    <img src="/placeholder.svg?height=180&width=180" alt="Playlist">
+                    <img src="{{asset('assets/images/playlists/anh-hao-nhac-viet.jpg')}}" alt="Playlist">
                     <div class="card-title">Bài hát đã thích</div>
                     <div class="card-text">Tuyển tập những bài hát yêu thích của bạn</div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
                 <div class="card">
-                    <img src="/placeholder.svg?height=180&width=180" alt="Playlist">
+                    <img src="{{asset('assets/images/playlists/indie.jpg')}}" alt="Playlist">
                     <div class="card-title">Gần đây</div>
                     <div class="card-text">Những bài hát bạn nghe gần đây</div>
                 </div>
@@ -168,12 +168,12 @@
         </div>
 
         <div class="row mb-5">
-            <x-artist src="{{ asset('assets/images/sontung.jpg') }}">Sơn Tùng M-TP</x-artist>
-            <x-artist src="{{ asset('assets/images/hoaminzy.jpg') }}">Hòa Minzy</x-artist>
-            <x-artist src="{{ asset('assets/images/drt.jpg') }}">Dangrangto</x-artist>
-            <x-artist src="{{ asset('assets/images/hth.jpg') }}">HIEUTHUHAI</x-artist>
-            <x-artist src="{{ asset('assets/images/amee.jpg') }}">Amee</x-artist>
-            <x-artist src="{{ asset('assets/images/chipu.jpg') }}">Chi Pu</x-artist>
+            <x-artist src="{{ asset('assets/images/artists/sontung.jpg') }}">Sơn Tùng M-TP</x-artist>
+            <x-artist src="{{ asset('assets/images/artists/hoaminzy.jpg') }}">Hòa Minzy</x-artist>
+            <x-artist src="{{ asset('assets/images/artists/drt.jpg') }}">Dangrangto</x-artist>
+            <x-artist src="{{ asset('assets/images/artists/hth.jpg') }}">HIEUTHUHAI</x-artist>
+            <x-artist src="{{ asset('assets/images/artists/amee.jpg') }}">Amee</x-artist>
+            <x-artist src="{{ asset('assets/images/artists/chipu.jpg') }}">Chi Pu</x-artist>
         </div>
     </div>
 
