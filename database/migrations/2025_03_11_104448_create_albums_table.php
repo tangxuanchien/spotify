@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('albums', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('song_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('title');
             $table->timestamps();
         });

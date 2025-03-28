@@ -13,8 +13,11 @@ return new class extends Migration
     {
         Schema::create('artists', function (Blueprint $table) {
             $table->id();
+            $table->string('slug');
             $table->string('name');
             $table->text('description');
+            $table->integer('monthly_listeners');
+            $table->integer('followers');
             $table->string('image_url');
             $table->timestamps();
         });

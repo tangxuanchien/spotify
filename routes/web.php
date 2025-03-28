@@ -1,12 +1,10 @@
 <?php
 
 use App\Http\Controllers\ArtistController;
+use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [IndexController::class, 'index'])->name('index');
 
-Route::get('/artist', [ArtistController::class,'showArtist'])->name('artist.show');
+Route::get('/artist/{name}', [ArtistController::class,'show'])->name('artist.show');
 
-// Route::get('', [ArtistController::class,

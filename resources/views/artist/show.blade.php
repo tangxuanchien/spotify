@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +9,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ asset('assets/css/artist.css') }}">
 </head>
+
 <body>
     @include('layouts.sidebar')
     @include('layouts.playerbar')
-
     <!-- Main Content -->
     <div class="main-content">
         <!-- Top Bar -->
@@ -40,9 +41,9 @@
                     <i class="bi bi-patch-check-fill"></i>
                     <span>Nghệ sĩ đã xác minh</span>
                 </div>
-                <h1 class="artist-name-header">Sơn Tùng M-TP</h1>
+                <h1 class="artist-name-header">{{ $artist['name'] }}</h1>
                 <div class="artist-stats">
-                    <span>8,459,621 người nghe hàng tháng</span>
+                    <span>{{ number_format($artist['monthly_listeners'], 0, '.', '.') }} người nghe hàng tháng</span>
                 </div>
                 <div class="artist-actions">
                     <button class="btn-play">
@@ -248,16 +249,17 @@
                 <h2 class="section-title">Giới thiệu</h2>
 
                 <div class="about-header">
-                    <img src="{{asset('assets/images/sontung.jpg')}}" alt="Artist" class="about-image">
+                    <img src="{{ asset('assets/images/artists/' . $artist['image_url']) }}" alt="Artist"
+                        class="about-image">
                     <div class="about-info">
-                        <h3 class="about-title">Sơn Tùng M-TP</h3>
+                        <h3 class="about-title">{{ $artist['name'] }}</h3>
                         <div class="about-stats">
                             <div class="stat-item">
-                                <div class="stat-value">8.4M</div>
+                                <div class="stat-value">{{ $monthly_listeners }}</div>
                                 <div class="stat-label">Người nghe hàng tháng</div>
                             </div>
                             <div class="stat-item">
-                                <div class="stat-value">5.2M</div>
+                                <div class="stat-value">{{ $followers }}</div>
                                 <div class="stat-label">Người theo dõi</div>
                             </div>
                         </div>
@@ -265,9 +267,7 @@
                 </div>
 
                 <div class="about-bio">
-                    <p>Nguyễn Thanh Tùng (sinh ngày 5 tháng 7 năm 1994), thường được biết đến với nghệ danh Sơn Tùng M-TP, là một ca sĩ, nhạc sĩ, rapper và diễn viên người Việt Nam.</p>
-                    <p>Sơn Tùng M-TP bắt đầu sự nghiệp âm nhạc vào năm 2012 và nhanh chóng trở thành một trong những nghệ sĩ thành công và có ảnh hưởng nhất trong nền âm nhạc Việt Nam hiện đại. Anh được biết đến với phong cách âm nhạc độc đáo kết hợp giữa pop, R&B, hip hop và nhạc điện tử.</p>
-                    <p>Năm 2017, Sơn Tùng thành lập công ty giải trí riêng mang tên M-TP Entertainment. Anh đã phát hành nhiều bài hát hit như "Lạc Trôi", "Chạy Ngay Đi", "Chúng Ta Của Hiện Tại" và "Muộn Rồi Mà Sao Còn".</p>
+                    {{ $artist['description'] }}
                 </div>
             </div>
 
@@ -276,59 +276,16 @@
                 <h2 class="section-title">Nghệ sĩ tương tự</h2>
 
                 <div class="row">
-                    <!-- Artist 1 -->
-                    <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
-                        <div class="card text-center">
-                            <img src="/placeholder.svg?height=160&width=160" alt="Artist" style="border-radius: 50%;">
-                            <div class="card-title">Hòa Minzy</div>
-                            <div class="card-text">Nghệ sĩ</div>
+                    @foreach ($artists_related as $artist_related)
+                        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
+                            <div class="card text-center">
+                                <img src="{{asset('assets/images/artists/'.$artist_related['image_url'])}}" alt="Artist"
+                                    style="border-radius: 50%;">
+                                <div class="card-title">{{ $artist_related['name'] }}</div>
+                                <div class="card-text">Nghệ sĩ</div>
+                            </div>
                         </div>
-                    </div>
-
-                    <!-- Artist 2 -->
-                    <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
-                        <div class="card text-center">
-                            <img src="/placeholder.svg?height=160&width=160" alt="Artist" style="border-radius: 50%;">
-                            <div class="card-title">Bích Phương</div>
-                            <div class="card-text">Nghệ sĩ</div>
-                        </div>
-                    </div>
-
-                    <!-- Artist 3 -->
-                    <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
-                        <div class="card text-center">
-                            <img src="/placeholder.svg?height=160&width=160" alt="Artist" style="border-radius: 50%;">
-                            <div class="card-title">Jack</div>
-                            <div class="card-text">Nghệ sĩ</div>
-                        </div>
-                    </div>
-
-                    <!-- Artist 4 -->
-                    <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
-                        <div class="card text-center">
-                            <img src="/placeholder.svg?height=160&width=160" alt="Artist" style="border-radius: 50%;">
-                            <div class="card-title">Đen Vâu</div>
-                            <div class="card-text">Nghệ sĩ</div>
-                        </div>
-                    </div>
-
-                    <!-- Artist 5 -->
-                    <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
-                        <div class="card text-center">
-                            <img src="/placeholder.svg?height=160&width=160" alt="Artist" style="border-radius: 50%;">
-                            <div class="card-title">Vũ</div>
-                            <div class="card-text">Nghệ sĩ</div>
-                        </div>
-                    </div>
-
-                    <!-- Artist 6 -->
-                    <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
-                        <div class="card text-center">
-                            <img src="/placeholder.svg?height=160&width=160" alt="Artist" style="border-radius: 50%;">
-                            <div class="card-title">Hoàng Thùy Linh</div>
-                            <div class="card-text">Nghệ sĩ</div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -336,4 +293,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
