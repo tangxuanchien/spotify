@@ -3,14 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Artist;
+use App\Models\Song;
 use Illuminate\Http\Request;
 
-class ArtistController extends Controller
+class ArtistController extends BaseController
 {
     const PATH_VIEW = 'artist.';
     public function index()
     {
-        return view(self::PATH_VIEW . __FUNCTION__);
+        $artists = Artist::all();
+        return view(__FUNCTION__, compact('artists'));
     }
 
     public function formatNumber($number)

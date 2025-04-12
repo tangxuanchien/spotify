@@ -15,7 +15,10 @@ return new class extends Migration {
             $table->foreignId('artist_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('name');
             $table->string('source');
+            $table->string('image_url');
             $table->year('release_year');
+            $table->foreignId('genre_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string('duration');
             $table->timestamps();
 
         });

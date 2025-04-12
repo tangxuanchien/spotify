@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Artist;
+use App\Models\Song;
 use Illuminate\Http\Request;
 
-class IndexController extends Controller
+class IndexController extends BaseController
 {
     public function index(){
         $artists = Artist::all();

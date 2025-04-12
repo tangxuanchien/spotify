@@ -1,9 +1,9 @@
 <div class="player-bar">
     <div class="now-playing">
-        <img src="{{ asset('assets/images/musics/mrmsc.jpg') }}" alt="Now Playing">
+        <img src="{{ asset('assets/images/musics/'.$song_playerbar['image_url']) }}" alt="Now Playing">
         <div class="track-info">
-            <div class="track-name">Có Chắc Yêu Là Đây</div>
-            <div class="artist-name">Sơn Tùng M-TP</div>
+            <div class="track-name">{{$song_playerbar['name']}}</div>
+            <div class="artist-name">{{$artist_playerbar['name']}}</div>
         </div>
         <i class="bi bi-heart ms-3" style="color: var(--text-secondary); cursor: pointer;"></i>
     </div>
@@ -21,15 +21,19 @@
             <div class="progress-bar">
                 <input type="range" id="progressBar" value="0" min="0" step="1" max="10">
             </div>
-            <div class="progress-time" id="endTime">0:00</div>
+            <div class="progress-time" id="endTime">{{$song_playerbar['duration']}}</div>
         </div>
-        <audio src="{{ asset('assets/musics/Muộn Rồi Mà Sao Còn.mp4') }}" id="audio"></audio>
+        <audio src="{{ asset('assets/musics/'.$song_playerbar['source']) }}" id="audio"></audio>
     </div>
 
     <div class="volume-controls">
         <i class="bi bi-volume-up volume-icon" id="volumeMusic"></i>
         <input type="range" id="volumeBar" value="100" min="0" step="1" max="100" class="volume-bar">
     </div>
+    <form action={{route('skip.show')}} method="POST">
+        @csrf
+        <input type="text" name="name" id="name">
+    </form>
 </div>
 <script>
     let playMusic = document.getElementById('playMusic');
@@ -53,10 +57,6 @@
         progressBar.max = parseInt(audio.duration);
         endTime.textContent = formatTime(audio.duration);
     })
-
-    // audio.addEventListener('input', function(){
-    //     startTime.textContent = formatTime(audio.currentTime);
-    // })
 
     playMusic.addEventListener('click', function() {
         if (audio.paused == true) {

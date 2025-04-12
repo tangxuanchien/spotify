@@ -6,17 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Artist extends Model
 {
-    protected $fillable = [
-        'name',
-        'slug',
-        'description',
-        'followers',
-        'monthly_listeners',
-        'image_url',
-    ];
+    protected $guarded = [
 
-    protected $hidden = [
-        'password',
-        'remember_token',
     ];
+    public function songs(){
+        return $this->hasMany(Song::class);
+    }
 }
