@@ -14,16 +14,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        // User::factory()->create([
-        //     'name' => 'Tang Xuan Chien',
-        //     'email' => 'chien@gmail.com',
-        //     'password'=> Hash::make('123456'),
-        // ]);
-
         $this->call(ArtistSeeder::class);
         $this->call(GenresSeeder::class);
         $this->call(SongSeeder::class);
+        $this->call(UserSeeder::class);
     }
 }

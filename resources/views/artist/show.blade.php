@@ -15,24 +15,7 @@
     @include('layouts.playerbar')
     <!-- Main Content -->
     <div class="main-content">
-        <!-- Top Bar -->
-        <div class="top-bar">
-            <div class="nav-buttons">
-                <div class="nav-btn">
-                    <i class="bi bi-chevron-left"></i>
-                </div>
-                <div class="nav-btn">
-                    <i class="bi bi-chevron-right"></i>
-                </div>
-            </div>
-            <div class="user-menu">
-                <div class="user-avatar">
-                    <i class="bi bi-person"></i>
-                </div>
-                <span>User</span>
-                <i class="bi bi-caret-down-fill ms-2"></i>
-            </div>
-        </div>
+        <x-topbar>Đăng nhập</x-topbar>
 
         <!-- Artist Header -->
         <div class="artist-header">
@@ -279,8 +262,8 @@
                     @foreach ($artists_related as $artist_related)
                         <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
                             <div class="card text-center">
-                                <img src="{{asset('assets/images/artists/'.$artist_related['image_url'])}}" alt="Artist"
-                                    style="border-radius: 50%;">
+                                <img src="{{ asset('assets/images/artists/' . $artist_related['image_url']) }}"
+                                    alt="Artist" style="border-radius: 50%;">
                                 <div class="card-title">{{ $artist_related['name'] }}</div>
                                 <div class="card-text">Nghệ sĩ</div>
                             </div>

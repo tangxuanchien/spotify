@@ -17,23 +17,7 @@
 
     <!-- Main Content -->
     <div class="main-content">
-        <div class="top-bar">
-            <div class="nav-buttons">
-                <div class="nav-btn">
-                    <i class="bi bi-chevron-left"></i>
-                </div>
-                <div class="nav-btn">
-                    <i class="bi bi-chevron-right"></i>
-                </div>
-            </div>
-            <div class="user-menu">
-                <div class="user-avatar">
-                    <i class="bi bi-person"></i>
-                </div>
-                <span>tangxchien</span>
-                <i class="bi bi-caret-down-fill ms-2"></i>
-            </div>
-        </div>
+        <x-topbar>Đăng nhập</x-topbar>
 
         <h1 class="section-title">Chào buổi tối</h1>
 

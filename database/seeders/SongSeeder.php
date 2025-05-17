@@ -26,6 +26,36 @@ class SongSeeder extends Seeder
             ],
             [
                 'id' => 2,
+                'artist_id' => 3,
+                'name' => 'Có chắc yêu là đây',
+                'source' => 'CÓ CHẮC YÊU LÀ ĐÂY.mp4',
+                'image_url' => 'ccyld.jpg',
+                'release_year' => 2020,
+                'genre_id' => 1,
+                'duration' => '3:35'
+            ],
+            // [
+            //     'id' => 3,
+            //     'artist_id' => 3,
+            //     'name' => 'Muộn rồi mà sao còn',
+            //     'source' => 'Muộn Rồi Mà Sao Còn.mp4',
+            //     'image_url' => 'mrmsc.jpg',
+            //     'release_year' => 2018,
+            //     'genre_id' => 1,
+            //     'duration' => '4:35'
+            // ],
+            // [
+            //     'id' => 4,
+            //     'artist_id' => 3,
+            //     'name' => 'Muộn rồi mà sao còn',
+            //     'source' => 'Muộn Rồi Mà Sao Còn.mp4',
+            //     'image_url' => 'mrmsc.jpg',
+            //     'release_year' => 2018,
+            //     'genre_id' => 1,
+            //     'duration' => '4:35'
+            // ],
+            [
+                'id' => 5,
                 'artist_id' => 1,
                 'name' => 'Tim Anh Ghen',
                 'source' => 'TIM ANH GHEN.mp4',
