@@ -17,7 +17,14 @@
 
     <!-- Main Content -->
     <div class="main-content">
-        <x-topbar>Đăng nhập</x-topbar>
+        <x-topbar>
+           @auth
+               {{Auth::user()->name}}
+           @endauth
+           @guest
+                Đăng nhập
+           @endguest
+        </x-topbar>
 
         <h1 class="section-title">Chào buổi tối</h1>
 
