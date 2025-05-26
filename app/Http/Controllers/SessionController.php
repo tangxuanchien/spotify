@@ -14,8 +14,9 @@ class SessionController extends Controller
     public function store(Request $request){
         // validate
         $validate = $request->validate([
-            'email' => ['required'],
-            'password' => ['required', 'max:6']
+            'email' => ['required', 'exists:users,email'],
+            'password' => ['required', 'min:6'],
+            'remember' => []
         ]);
 
         // Auth::attempt == User:where($validate)
@@ -24,6 +25,8 @@ class SessionController extends Controller
             $request->session()->regenerate();
 
             return redirect()->route('index');
+        } else {
+            return back()->withErrors(['login' => 'Thông tin tài khoản không khớp'])->withInput();
         }
 
     }

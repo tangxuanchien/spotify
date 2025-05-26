@@ -19,6 +19,8 @@ class UserSeeder extends Seeder
                 'id' => 1,
                 'name' => 'Tăng Xuân Chiến',
                 'email' => 'tangxuanchien511@gmail.com',
+                'email_notifications' => '0',
+                'date_of_birth' => '2003-11-20',
                 'password' => Hash::make(123456),
             ]
         ]);

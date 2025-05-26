@@ -1,32 +1,34 @@
 <x-auth.header>
     Đăng nhập - Spotify
     <x-slot:title>
-        Đăng nhập
+        Đăng nhập tài khoản
     </x-slot>
 </x-auth.header>
 <form action={{ route('session.store') }} method="POST">
     @csrf
-    <div class="form-group">
-        <label for="email" class="form-label">Email hoặc tên người dùng</label>
-        <input type="email" class="form-control" id="email" name="email" placeholder="Email hoặc tên người dùng">
-    </div>
+    <x-auth.input name="email" type="email" placeholder="Email người dùng">
+        Email của bạn
+    </x-auth.input>
 
-    <div class="form-group">
-        <label for="password" class="form-label">Mật khẩu</label>
-        <input type="password" class="form-control" id="password" name="password" placeholder="Mật khẩu">
-    </div>
+    <x-auth.input name="password" type="password" placeholder="Mật khẩu">
+        Mật khẩu
+    </x-auth.input>
 
-    <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="remember">
-        <label class="form-check-label" for="remember">Ghi nhớ đăng nhập</label>
-    </div>
+    <x-auth.checkbox name="remember">
+        Ghi nhớ đăng nhập
+    </x-auth.checkbox>
 
     <a href="#" class="forgot-password">Quên mật khẩu?</a>
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            <div class="text-danger mb-2">
+                {{ $error }}
+            </div>
+        @endforeach
+    @endif
 
     <button type="submit" class="btn-auth">ĐĂNG NHẬP</button>
 
-    <div class="auth-link">
-        <p>Bạn chưa có tài khoản? <a href={{ route('register.create') }}>Đăng ký</a></p>
-    </div>
+    <x-auth.link href="{{ route('register.create') }}" text='Bạn chưa có tài khoản?'>Đăng ký</x-auth.link>
 </form>
 <x-auth.footer />

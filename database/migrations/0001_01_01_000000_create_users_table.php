@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id()->primary();
             $table->string('name');
             $table->string('email')->unique();
-            $table->dateTime('date_of_birth');
+            $table->date('date_of_birth');
             $table->boolean('email_notifications');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
