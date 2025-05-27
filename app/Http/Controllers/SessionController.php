@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use function PHPUnit\Framework\returnArgument;
 
 class SessionController extends Controller
 {
@@ -31,9 +33,25 @@ class SessionController extends Controller
 
     }
 
+    public function showForgetPassword(){
+        return view('auth.forget-password');
+    }
+
+    public function forgetPassword(Request $request){
+        $user = User::where('email', $request['email'])->first();
+        if(!$user){
+            return back()->withErrors(['forget' => 'Email không tồn tại'])->withInput();
+        }
+        // return back();
+    }
+
     public function destroy(){
         Auth::logout();
 
         return redirect()->route('index');
+    }
+
+    public function search(Request $request){
+        dd($request);
     }
 }

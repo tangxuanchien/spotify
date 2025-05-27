@@ -12,7 +12,13 @@ Route::get('/login', [SessionController::class, 'show'])->name('session.show');
 
 Route::post('/login', [SessionController::class, 'store'])->name('session.store');
 
+Route::post('/search', [SessionController::class, 'search'])->name('session.search');
+
 Route::post('/logout', [SessionController::class, 'destroy'])->name('session.destroy');
+
+Route::get('/password/forget', [SessionController::class, 'showForgetPassword'])->name('session.forget');
+
+Route::post('/password/forget', [SessionController::class, 'forgetPassword'])->name('session.forget');
 
 Route::get('/register', [RegisterController::class, 'create'])->name('register.create');
 

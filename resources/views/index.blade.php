@@ -1,33 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.layout')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music Stream - Home</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/image') }}">
-</head>
+@section('title', 'Music Spotify')
 
-<body>
-    <!-- Sidebar -->
-    @include('layouts.sidebar')
-
-    <!-- Main Content -->
+@section('content')
     <div class="main-content">
-        <x-topbar>
-           @auth
-               {{Auth::user()->name}}
-           @endauth
-           @guest
-                Đăng nhập
-           @endguest
-        </x-topbar>
-
         <h1 class="section-title">Chào buổi tối</h1>
-
         <div class="row mb-5">
             <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
                 <div class="card">
@@ -171,11 +148,7 @@
             @endforeach
         </div>
     </div>
-
-    <!-- Player Bar -->
-    @include('layouts.playerbar')
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-
-</html>
+@endsection
+@push('header')
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+@endpush
