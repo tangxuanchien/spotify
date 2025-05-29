@@ -4,7 +4,7 @@
         <i class="bi bi-house-door-fill"></i>
         <span>Trang chủ</span>
     </a>
-    <a href="#" class="sidebar-link">
+    <a href={{route('admin.index')}} class="sidebar-link">
         <i class="bi bi-search"></i>
         <span>Tìm kiếm</span>
     </a>
