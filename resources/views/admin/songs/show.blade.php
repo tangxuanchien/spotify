@@ -22,7 +22,7 @@
 
                     <div class="song-actions">
                         <button class="btn btn-primary">
-                            <i class="bi bi-pencil"></i> Chỉnh sửa 
+                            <i class="bi bi-pencil"></i> Chỉnh sửa
                         </button>
                         <button class="btn btn-secondary">
                             <i class="bi bi-eye"></i> Xem trên trang chủ
