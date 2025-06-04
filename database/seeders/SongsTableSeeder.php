@@ -1,0 +1,356 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+
+class SongsTableSeeder extends Seeder
+{
+
+    /**
+     * Auto generated seed file
+     *
+     * @return void
+     */
+    public function run()
+    {
+        
+
+        \DB::table('songs')->delete();
+        
+        \DB::table('songs')->insert(array (
+            0 => 
+            array (
+                'id' => 1,
+                'artist_id' => 3,
+                'name' => 'Muộn rồi mà sao còn',
+                'source' => 'Muộn Rồi Mà Sao Còn.mp4',
+                'image_url' => 'mrmsc.jpg',
+                'release_year' => '2018',
+                'likes' => 0,
+                'listens' => 0,
+                'genre_id' => 1,
+                'duration' => '4:35',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            1 => 
+            array (
+                'id' => 2,
+                'artist_id' => 3,
+                'name' => 'Có chắc yêu là đây',
+                'source' => 'CÓ CHẮC YÊU LÀ ĐÂY.mp4',
+                'image_url' => 'ccyld.jpg',
+                'release_year' => '2020',
+                'likes' => 0,
+                'listens' => 0,
+                'genre_id' => 1,
+                'duration' => '3:35',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            2 => 
+            array (
+                'id' => 3,
+                'artist_id' => 3,
+                'name' => 'Đừng làm trái tim anh đau',
+                'source' => 'Đừng làm trái tim anh đau.mp4',
+                'image_url' => 'dlttad.jpg',
+                'release_year' => '2018',
+                'likes' => 0,
+                'listens' => 0,
+                'genre_id' => 1,
+                'duration' => '4:35',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            3 => 
+            array (
+                'id' => 4,
+                'artist_id' => 1,
+                'name' => 'Tim Anh Ghen',
+                'source' => 'TIM ANH GHEN.mp4',
+                'image_url' => 'tag.jpg',
+                'release_year' => '2024',
+                'likes' => 0,
+                'listens' => 0,
+                'genre_id' => 2,
+                'duration' => '4:39',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            4 => 
+            array (
+                'id' => 5,
+                'artist_id' => 2,
+                'name' => 'Rời Bỏ',
+                'source' => 'Rời Bỏ.mp4',
+                'image_url' => 'roibo.jpg',
+                'release_year' => '2017',
+                'likes' => 0,
+                'listens' => 0,
+                'genre_id' => 1,
+                'duration' => '4:20',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            5 => 
+            array (
+                'id' => 6,
+                'artist_id' => 2,
+                'name' => 'Không Thể Cùng Nhau Suốt Kiếp',
+                'source' => 'Không Thể Cùng Nhau Suốt Kiếp.mp4',
+                'image_url' => 'ktcnsk.jpg',
+                'release_year' => '2020',
+                'likes' => 0,
+                'listens' => 0,
+                'genre_id' => 1,
+                'duration' => '5:00',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            6 => 
+            array (
+                'id' => 7,
+                'artist_id' => 2,
+                'name' => 'Bắc Bling',
+                'source' => 'Bắc Bling.mp4',
+                'image_url' => 'bb.jpg',
+                'release_year' => '2018',
+                'likes' => 0,
+                'listens' => 0,
+                'genre_id' => 1,
+                'duration' => '4:30',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            7 => 
+            array (
+                'id' => 8,
+                'artist_id' => 4,
+                'name' => 'Cua',
+                'source' => 'Cua.mp4',
+                'image_url' => 'cua.jpg',
+                'release_year' => '2020',
+                'likes' => 0,
+                'listens' => 0,
+                'genre_id' => 2,
+                'duration' => '3:15',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            8 => 
+            array (
+                'id' => 9,
+                'artist_id' => 4,
+                'name' => 'Không thể say',
+                'source' => 'Không thể say.mp4',
+                'image_url' => 'kts.jpg',
+                'release_year' => '2021',
+                'likes' => 0,
+                'listens' => 0,
+                'genre_id' => 2,
+                'duration' => '3:20',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            9 => 
+            array (
+                'id' => 10,
+                'artist_id' => 4,
+                'name' => 'Ngủ một mình',
+                'source' => 'Ngủ một mình.mp4',
+                'image_url' => 'nmm.jpg',
+                'release_year' => '2022',
+                'likes' => 0,
+                'listens' => 0,
+                'genre_id' => 1,
+                'duration' => '3:30',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            10 => 
+            array (
+                'id' => 11,
+                'artist_id' => 5,
+                'name' => 'Anh Nhà Ở Đâu Thế',
+                'source' => 'Anh Nhà Ở Đâu Thế.mp4',
+                'image_url' => 'anodt.jpg',
+                'release_year' => '2019',
+                'likes' => 0,
+                'listens' => 0,
+                'genre_id' => 1,
+                'duration' => '3:40',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            11 => 
+            array (
+                'id' => 12,
+                'artist_id' => 5,
+                'name' => 'Đen Đá Không Đường',
+                'source' => 'Đen Đá Không Đường.mp4',
+                'image_url' => 'ddkd.jpg',
+                'release_year' => '2020',
+                'likes' => 0,
+                'listens' => 0,
+                'genre_id' => 1,
+                'duration' => '3:30',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            12 => 
+            array (
+                'id' => 13,
+                'artist_id' => 5,
+                'name' => 'Sao Anh Chưa Về Nhà',
+                'source' => 'Sao Anh Chưa Về Nhà.mp4',
+                'image_url' => 'sacvn.jpg',
+                'release_year' => '2021',
+                'likes' => 0,
+                'listens' => 0,
+                'genre_id' => 1,
+                'duration' => '3:45',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            13 => 
+            array (
+                'id' => 14,
+                'artist_id' => 6,
+                'name' => 'Anh Ơi Ở Lại',
+                'source' => 'Anh Ơi Ở Lại.mp4',
+                'image_url' => 'aol.jpg',
+                'release_year' => '2019',
+                'likes' => 0,
+                'listens' => 0,
+                'genre_id' => 1,
+                'duration' => '4:00',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            14 => 
+            array (
+                'id' => 15,
+                'artist_id' => 6,
+                'name' => 'Từ Hôm Nay',
+                'source' => 'Từ Hôm Nay.mp4',
+                'image_url' => 'thn.jpg',
+                'release_year' => '2017',
+                'likes' => 0,
+                'listens' => 0,
+                'genre_id' => 1,
+                'duration' => '3:40',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            15 => 
+            array (
+                'id' => 16,
+                'artist_id' => 6,
+                'name' => 'Đoá Hoa Hồng',
+                'source' => 'Đoá Hoa Hồng.mp4',
+                'image_url' => 'dhn.jpg',
+                'release_year' => '2018',
+                'likes' => 0,
+                'listens' => 0,
+                'genre_id' => 1,
+                'duration' => '3:50',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            16 => 
+            array (
+                'id' => 17,
+                'artist_id' => 1,
+                'name' => 'Chẳng Thể Nói Ra',
+                'source' => 'Chẳng Thể Nói Ra.mp4',
+                'image_url' => 'ctnr.jpg',
+                'release_year' => '2021',
+                'likes' => 0,
+                'listens' => 0,
+                'genre_id' => 1,
+                'duration' => '3:30',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            17 => 
+            array (
+                'id' => 18,
+                'artist_id' => 1,
+                'name' => 'Ngựa ô',
+                'source' => 'Ngựa ô.mp4',
+                'image_url' => 'no.jpg',
+                'release_year' => '2020',
+                'likes' => 0,
+                'listens' => 0,
+                'genre_id' => 2,
+                'duration' => '3:15',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            18 => 
+            array (
+                'id' => 19,
+                'artist_id' => 1,
+                'name' => 'Trần Duy Hưng',
+                'source' => 'Trần Duy Hưng.mp4',
+                'image_url' => 'tdh.jpg',
+                'release_year' => '2022',
+                'likes' => 0,
+                'listens' => 0,
+                'genre_id' => 2,
+                'duration' => '3:25',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            19 => 
+            array (
+                'id' => 20,
+                'artist_id' => 3,
+                'name' => 'Hãy Trao Cho Anh',
+                'source' => 'Hãy Trao Cho Anh.mp4',
+                'image_url' => 'htca.jpg',
+                'release_year' => '2019',
+                'likes' => 0,
+                'listens' => 0,
+                'genre_id' => 1,
+                'duration' => '4:00',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            20 => 
+            array (
+                'id' => 21,
+                'artist_id' => 3,
+                'name' => 'Chạy Ngay Đi',
+                'source' => 'Chạy Ngay Đi.mp4',
+                'image_url' => 'cnd.jpg',
+                'release_year' => '2018',
+                'likes' => 0,
+                'listens' => 0,
+                'genre_id' => 1,
+                'duration' => '4:10',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            21 => 
+            array (
+                'id' => 22,
+                'artist_id' => 1,
+                'name' => 'Girl Hà Nội',
+                'source' => 'Girl Hà Nội.mp4',
+                'image_url' => 'ghn.jpg',
+                'release_year' => '2022',
+                'likes' => 0,
+                'listens' => 0,
+                'genre_id' => 2,
+                'duration' => '3:25',
+                'created_at' => '2024-10-25 16:37:26',
+                'updated_at' => '2024-10-31 16:20:26',
+            ),
+        ));
+        
+        
+    }
+}

@@ -9,7 +9,8 @@
                     <p>Điền thông tin chi tiết để thêm bài hát vào thư viện</p>
                 </div>
 
-                <form id="addSongForm" action={{route('admin.songs.store')}} method="POST">
+                <form id="addSongForm" action={{route('admin.songs.store')}} method="POST" enctype="multipart/form-data">
+                    @csrf
                     <!-- Song File Upload -->
                     <div class="form-group">
                         <label class="form-label required">File nhạc</label>
@@ -20,7 +21,7 @@
                             <div class="file-upload-text">Kéo thả file nhạc vào đây hoặc click để chọn</div>
                             <div class="file-upload-hint">Hỗ trợ: MP3, MP4 (Tối đa 50MB)</div>
                         </div>
-                        <input type="file" id="songFile" class="file-input" accept=".mp3,.mp4" required>
+                        <input type="file" id="songFile" class="file-input" accept=".mp3,.mp4" required name="source">
                         <div id="songFileInfo"></div>
                     </div>
 
@@ -34,15 +35,15 @@
                             <div class="file-upload-text">Kéo thả ảnh bìa vào đây hoặc click để chọn</div>
                             <div class="file-upload-hint">Hỗ trợ: JPG, PNG (Tối đa 5MB, khuyến nghị 1000x1000px)</div>
                         </div>
-                        <input type="file" id="coverImage" class="file-input" accept=".jpg,.jpeg,.png">
+                        <input type="file" id="coverImage" class="file-input" accept=".jpg,.jpeg,.png" name="image_url">
                         <div id="coverImageInfo"></div>
                     </div>
 
                     <!-- Basic Information -->
-                    <div class="form-row">
+                    {{-- <div class="form-row">
                         <div class="form-group">
                             <label for="songTitle" class="form-label required">Tên bài hát</label>
-                            <input type="text" class="form-control" id="songTitle" placeholder="Nhập tên bài hát"
+                            <input type="text" class="form-control" id="songTitle" placeholder="Nhập tên bài hát" name="song_title"
                                 required>
                         </div>
 
@@ -57,9 +58,9 @@
                                 <option value="other">Khác (thêm mới)</option>
                             </select>
                         </div>
-                    </div>
+                    </div> --}}
 
-                    <div class="form-row">
+                    {{-- <div class="form-row">
                         <div class="form-group">
                             <label for="album" class="form-label">Album</label>
                             <select class="form-select" id="album">
@@ -83,45 +84,45 @@
                                 <option value="r-b">R&B</option>
                             </select>
                         </div>
-                    </div>
+                    </div> --}}
 
-                    <div class="form-row">
+                    {{-- <div class="form-row">
                         <div class="form-group">
                             <label for="releaseYear" class="form-label required">Năm phát hành</label>
-                            <input type="number" class="form-control" id="releaseYear" placeholder="2023" min="1900"
-                                max="2024" required>
+                            <input type="number" class="form-control" id="releaseYear" name="release_year" placeholder="2023" min="2000"
+                                max="2025" required>
                         </div>
 
                         <div class="form-group">
                             <label for="duration" class="form-label">Thời lượng</label>
-                            <input type="text" class="form-control" id="duration" placeholder="3:45"
+                            <input type="text" class="form-control" id="duration" name="duration" placeholder="3:45"
                                 pattern="[0-9]:[0-5][0-9]">
                             <div class="form-text">Định dạng: MM:SS (sẽ tự động phát hiện từ file nhạc)</div>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <!-- Additional Information -->
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label for="lyrics" class="form-label">Lời bài hát</label>
                         <textarea class="form-control" id="lyrics" rows="6" placeholder="Nhập lời bài hát (tùy chọn)"></textarea>
                         <div class="form-text">Lời bài hát sẽ hiển thị khi người dùng phát nhạc</div>
-                    </div>
+                    </div> --}}
 
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label for="description" class="form-label">Mô tả</label>
                         <textarea class="form-control" id="description" rows="3"
                             placeholder="Mô tả về bài hát, câu chuyện đằng sau..."></textarea>
-                    </div>
+                    </div> --}}
 
                     <!-- Tags -->
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label for="tags" class="form-label">Tags</label>
                         <input type="text" class="form-control" id="tags" placeholder="ballad, tình yêu, buồn">
                         <div class="form-text">Phân cách bằng dấu phẩy để thêm nhiều tag</div>
-                    </div>
+                    </div> --}}
 
                     <!-- Status and Visibility -->
-                    <div class="form-row">
+                    {{-- <div class="form-row">
                         <div class="form-group">
                             <label for="status" class="form-label required">Trạng thái</label>
                             <select class="form-select" id="status" required>
@@ -139,15 +140,7 @@
                                 <option value="private">Riêng tư</option>
                             </select>
                         </div>
-                    </div>
-
-                    <!-- Progress Bar -->
-                    <div class="progress-container" id="uploadProgress">
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 0%"></div>
-                        </div>
-                        <div class="progress-text">Đang tải lên... 0%</div>
-                    </div>
+                    </div> --}}
 
                     <!-- Form Actions -->
                     <div class="form-actions">
@@ -236,37 +229,6 @@
                     input.dispatchEvent(new Event('change'));
                 }
             });
-        });
-
-        // Form submission
-        document.getElementById('addSongForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            // Show progress bar
-            const progressContainer = document.getElementById('uploadProgress');
-            const progressBar = progressContainer.querySelector('.progress-bar');
-            const progressText = progressContainer.querySelector('.progress-text');
-
-            progressContainer.style.display = 'block';
-
-            // Simulate upload progress
-            let progress = 0;
-            const interval = setInterval(() => {
-                progress += Math.random() * 15;
-                if (progress > 100) progress = 100;
-
-                progressBar.style.width = progress + '%';
-                progressText.textContent = `Đang tải lên... ${Math.round(progress)}%`;
-
-                if (progress >= 100) {
-                    clearInterval(interval);
-                    setTimeout(() => {
-                        alert('Bài hát đã được thêm thành công!');
-                        progressContainer.style.display = 'none';
-                        // Reset form or redirect
-                    }, 500);
-                }
-            }, 200);
         });
 
         // Auto-detect duration from audio file

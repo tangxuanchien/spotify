@@ -86,4 +86,10 @@ class SessionController extends Controller
             return back()->withErrors(['login' => 'Thông tin không chính xác'])->withInput();
         }
     }
+
+    public function destroyAdmin()
+    {
+        Auth::guard('admin')->logout();
+        return redirect()->route('admin.session.show');
+    }
 }

@@ -4,9 +4,11 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class Auth
+
+class AuthMiddleware
 {
     /**
      * Handle an incoming request.
@@ -15,7 +17,9 @@ class Auth
      */
     public function handle(Request $request, Closure $next): Response
     {
-        dd(session()->getDrivers());
+        if(!\Auth::guard('admin')->check()){
+            return redirect()->route('admin.session.show');
+        }
         return $next($request);
     }
 }

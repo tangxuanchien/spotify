@@ -2,10 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,9 +11,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call(ArtistSeeder::class);
-        $this->call(GenresSeeder::class);
-        $this->call(SongSeeder::class);
-        $this->call(UserSeeder::class);
+        $this->call(ArtistsTableSeeder::class);
+        $this->call(GenresTableSeeder::class);
+        $this->call(SongsTableSeeder::class);
+        $this->call(UsersTableSeeder::class);
     }
 }

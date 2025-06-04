@@ -42,7 +42,7 @@
                             <td><span class="status-badge status-active">Hoạt động</span></td>
                             <td>
                                 <button class="action-btn" title="Xem chi tiết">
-                                    <i class="bi bi-eye"></i>
+                                    <a href={{route('admin.songs.show', [$song['id']])}}><i class="bi bi-eye"></i></a>
                                 </button>
                                 <button class="action-btn" title="Chỉnh sửa">
                                     <i class="bi bi-pencil"></i>

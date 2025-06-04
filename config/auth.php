@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Admin;
+
 return [
 
     /*
@@ -70,8 +72,8 @@ return [
         ],
 
         'admins' => [
-            'driver' => 'database',
-            'table' => 'admins',
+            'driver' => 'eloquent',
+            'model' =>  Admin::class,
         ],
     ],
 

@@ -17,6 +17,8 @@ return new class extends Migration {
             $table->string('source');
             $table->string('image_url');
             $table->year('release_year');
+            $table->unsignedInteger('likes')->default(0);
+            $table->unsignedInteger('listens')->default(0);
             $table->foreignId('genre_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('duration');
             $table->timestamps();

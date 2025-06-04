@@ -35,16 +35,18 @@ Route::post('/skip-previous', [ArtistController::class, 'skipSong'])->name('skip
 
 // Admin routes
 
-Route::name('admin.')->prefix('admin')->group(function () {
+Route::name('admin.')->prefix('admin')->middleware('admin')->group(function () {
+    Route::get('/login', [SessionController::class, 'showAdmin'])->name('session.show')->withoutMiddleware('admin');
+    Route::post('/login', [SessionController::class, 'storeAdmin'])->name('session.store')->withoutMiddleware('admin');
+    Route::post('/logout', [SessionController::class, 'destroyAdmin'])->name('session.destroy');
     Route::get('', [AdminController::class, 'index'])->name('index');
-    Route::get('/login', [SessionController::class, 'showAdmin'])->name('session.show');
-    Route::post('/login', [SessionController::class, 'storeAdmin'])->name('session.store');
 
     // Songs routes
     Route::name('songs.')->prefix('songs')->group(function(){
-        Route::get('', [SongController::class, 'show'])->name('index');
+        Route::get('', [SongController::class, 'index'])->name('index');
         Route::get('/create', [SongController::class, 'create'])->name('create');
-        Route::get('/store', [SongController::class, 'store'])->name('store');
+        Route::get('/show/{show}', [SongController::class, 'show'])->name('show');
+        Route::post('/store', [SongController::class, 'store'])->name('store');
     });
 });
 

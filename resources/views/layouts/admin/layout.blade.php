@@ -15,6 +15,17 @@
 
     <div class="main-content">
         @include('layouts.admin.header')
+        <div class="mt-3 ms-3">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#" class="text-success text-decoration-none">Home</a>
+                    </li>
+                    <li class="breadcrumb-item"><a href="#" class="text-success text-decoration-none">Library</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page" class="text-light">Data</li>
+                </ol>
+            </nav>
+        </div>
         @yield('content')
     </div>
 
