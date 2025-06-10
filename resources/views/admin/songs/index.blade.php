@@ -3,7 +3,7 @@
 @section('content')
     <div class="admin-content">
         <div class="quick-actions">
-            <a href={{route('admin.songs.create')}} class="quick-action-card">
+            <a href={{ route('admin.songs.create') }} class="quick-action-card">
                 <div class="quick-action-icon">
                     <i class="bi bi-plus-circle"></i>
                 </div>
@@ -15,6 +15,7 @@
             <table class="table table-dark table-hover">
                 <thead>
                     <tr>
+                        <th>Ảnh bài hát</th>
                         <th>Tên bài hát</th>
                         <th>Nghệ sĩ</th>
                         <th>Năm phát hành</th>
@@ -26,9 +27,9 @@
                 <tbody>
                     @foreach ($songs as $song)
                         <tr>
+                            <td><img src="{{ $song->image_url }}" alt="Song" class="user-avatar-small"></td>
                             <td>
                                 <div class="d-flex align-items-center">
-                                    {{-- <img src="/placeholder.svg?height=32&width=32" alt="User" class="user-avatar-small"> --}}
                                     <div>
                                         <div style="font-weight: 600;">{{ $song['name'] }}</div>
                                         <div style="font-size: 12px; color: var(--text-secondary);">ID: #{{ $song['id'] }}
@@ -42,13 +43,16 @@
                             <td><span class="status-badge status-active">Hoạt động</span></td>
                             <td>
                                 <button class="action-btn" title="Xem chi tiết">
-                                    <a href={{route('admin.songs.show', [$song['id']])}}><i class="bi bi-eye"></i></a>
+                                    <a href={{ route('admin.songs.show', [$song['id']]) }}><i
+                                            class="bi bi-eye text-light"></i></a>
                                 </button>
                                 <button class="action-btn" title="Chỉnh sửa">
-                                    <i class="bi bi-pencil"></i>
+                                    <a href={{ route('admin.songs.edit', [$song['id']]) }}><i
+                                            class="bi bi-pencil text-light"></i></a>
                                 </button>
                                 <button class="action-btn danger" title="Xóa">
-                                    <i class="bi bi-trash"></i>
+                                    <a href={{ route('admin.songs.show', [$song['id']]) }}><i
+                                            class="bi bi-trash text-danger"></i></a>
                                 </button>
                             </td>
                         </tr>
@@ -56,7 +60,7 @@
                 </tbody>
             </table>
             <div class="paginate">
-                {{$songs->links()}}
+                {{ $songs->links() }}
             </div>
         </div>
     </div>

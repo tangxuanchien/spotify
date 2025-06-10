@@ -20,13 +20,7 @@
         </x-auth.checkbox>
 
         <a href={{ route('session.forget') }} class="forgot-password">Quên mật khẩu?</a>
-        @if ($errors->any())
-            @foreach ($errors->all() as $error)
-                <div class="text-danger mb-2">
-                    {{ $error }}
-                </div>
-            @endforeach
-        @endif
+        <x-error />
 
         <button type="submit" class="btn-auth">ĐĂNG NHẬP</button>
 

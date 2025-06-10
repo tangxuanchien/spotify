@@ -9,7 +9,11 @@ class Artist extends Model
     protected $guarded = [
 
     ];
-    public function songs(){
-        return $this->hasMany(Song::class);
+    // public function songs(){
+    //     return $this->hasMany(Song::class);
+    // }
+
+    public function cloudinary_upload(){
+        return $this->belongsTo(CloudinaryUpload::class);
     }
 }

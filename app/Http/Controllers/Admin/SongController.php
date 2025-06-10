@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Artist;
 use App\Models\Genre;
 use App\Models\Song;
@@ -10,23 +11,27 @@ use Illuminate\Support\Facades\Storage;
 
 class SongController extends Controller
 {
+    const PATH_VIEW = 'admin.songs.';
     public function index()
     {
         $songs = Song::with('artist')->orderByDesc('id')->paginate(10);
-        return view('admin.songs.index', compact('songs'));
+        foreach ($songs as $song) {
+            $song->image_url = asset(Storage::url('images/songs/'.$song->image_url));
+        }
+        return view(self::PATH_VIEW.__FUNCTION__, compact('songs'));
     }
 
     public function show(string $id)
     {
         $song = Song::with(['artist', 'genre'])->find($id);
         $song->image_url = asset(Storage::url('images/musics/' . $song->image_url));
-        return view('admin.songs.show', compact('song'));
+        return view(self::PATH_VIEW.__FUNCTION__, compact('song'));
     }
 
 
     public function create()
     {
-        return view('admin.songs.create');
+        return view(self::PATH_VIEW.__FUNCTION__);
     }
 
     public function store(Request $request)
@@ -44,7 +49,7 @@ class SongController extends Controller
         $song = Song::with(['artist', 'genre'])->find($id);
         $genres = Genre::all();
         $artists = Artist::all();
-        return view('admin.songs.edit', compact('song', 'genres', 'artists'));
+        return view(self::PATH_VIEW.__FUNCTION__, compact('song', 'genres', 'artists'));
     }
 
     public function update(Request $request, string $id)
@@ -58,5 +63,9 @@ class SongController extends Controller
 
         Song::find( $id)->update($request->all());
         return redirect()->route('admin.songs.index');
+    }
+
+    public function destroy(string $id){
+        dd($id);
     }
 }

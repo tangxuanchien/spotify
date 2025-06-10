@@ -11,9 +11,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call(CloudinaryUploadsTableSeeder::class);
         $this->call(ArtistsTableSeeder::class);
         $this->call(GenresTableSeeder::class);
         $this->call(SongsTableSeeder::class);
         $this->call(UsersTableSeeder::class);
+        $this->call(AdminsTableSeeder::class);
     }
 }

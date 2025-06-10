@@ -293,8 +293,8 @@ body {
 }
 
 .user-avatar-small {
-    width: 32px;
-    height: 32px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     margin-right: 12px;
 }
@@ -1028,33 +1028,6 @@ body {
     transition: transform 0.2s;
 }
 
-.stat-card:hover {
-    transform: translateY(-2px);
-}
-
-.stat-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 16px;
-}
-
-.stat-title {
-    color: var(--text-secondary);
-    font-size: 14px;
-    font-weight: 600;
-}
-
-.stat-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-}
-
 .stat-icon.plays {
     background-color: rgba(30, 144, 255, 0.2);
     color: var(--info);
@@ -1073,27 +1046,6 @@ body {
 .stat-icon.shares {
     background-color: rgba(255, 165, 0, 0.2);
     color: var(--warning);
-}
-
-.stat-value {
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 8px;
-}
-
-.stat-change {
-    font-size: 12px;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-
-.stat-change.positive {
-    color: var(--success);
-}
-
-.stat-change.negative {
-    color: var(--danger);
 }
 
 .details-tabs {
@@ -1246,29 +1198,6 @@ body {
     gap: 8px;
 }
 
-.status-badge {
-    padding: 4px 8px;
-    border-radius: 12px;
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-}
-
-.status-active {
-    background-color: rgba(29, 185, 84, 0.2);
-    color: var(--success);
-}
-
-.status-inactive {
-    background-color: rgba(226, 33, 52, 0.2);
-    color: var(--danger);
-}
-
-.status-pending {
-    background-color: rgba(255, 165, 0, 0.2);
-    color: var(--warning);
-}
-
 @media (max-width: 992px) {
     .admin-sidebar {
         width: 80px;
@@ -1357,5 +1286,370 @@ body {
     .info-label {
         width: 100%;
         margin-bottom: 8px;
+    }
+}
+
+.preview-image {
+    max-height: 100px;
+    display: none;
+    margin-top: 15px;
+}
+
+.previous-image {
+    max-height: 100px;
+}
+
+.artist-details-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.artist-header {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 32px;
+}
+
+.artist-photo {
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    flex-shrink: 0;
+}
+
+.artist-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.artist-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.artist-meta {
+    margin-bottom: 16px;
+}
+
+.artist-type {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.artist-name {
+    font-size: 42px;
+    font-weight: 900;
+    margin-bottom: 16px;
+    line-height: 1.1;
+}
+
+.artist-genre {
+    font-size: 18px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.artist-details {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.artist-details span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.artist-social {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.social-link:hover {
+    background-color: var(--accent);
+    color: white;
+    transform: scale(1.05);
+}
+
+.artist-actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.stat-icon.followers {
+    background-color: rgba(30, 144, 255, 0.2);
+    color: var(--info);
+}
+
+.stat-icon.albums {
+    background-color: rgba(255, 165, 0, 0.2);
+    color: var(--warning);
+}
+
+.details-tabs {
+    margin-bottom: 32px;
+}
+
+.nav-tabs {
+    border-bottom: 1px solid var(--divider);
+    margin-bottom: 24px;
+}
+
+.song-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--divider);
+    transition: background-color 0.2s;
+}
+
+.song-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.song-item:last-child {
+    border-bottom: none;
+}
+
+.song-number {
+    width: 40px;
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-align: center;
+}
+
+.song-cover {
+    width: 48px;
+    height: 48px;
+    border-radius: 4px;
+    margin-right: 16px;
+}
+
+.song-info {
+    flex-grow: 1;
+}
+
+.song-title {
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.song-meta {
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+.song-stats {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.album-item {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    background-color: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    margin-bottom: 16px;
+    transition: all 0.2s;
+}
+
+.album-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    transform: translateY(-2px);
+}
+
+.album-cover {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    margin-right: 16px;
+}
+
+.album-info {
+    flex-grow: 1;
+}
+
+.album-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.album-meta {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.album-stats {
+    display: flex;
+    gap: 16px;
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+.chart-container {
+    height: 300px;
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.chart-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    font-size: 18px;
+    background: linear-gradient(45deg, var(--card-hover), var(--divider));
+    border-radius: 8px;
+}
+
+.status-active {
+    background-color: rgba(29, 185, 84, 0.2);
+    color: var(--success);
+}
+
+.status-inactive {
+    background-color: rgba(226, 33, 52, 0.2);
+    color: var(--danger);
+}
+
+.status-verified {
+    background-color: rgba(30, 144, 255, 0.2);
+    color: var(--info);
+}
+
+@media (max-width: 992px) {
+    .admin-sidebar {
+        width: 80px;
+        padding: 24px 8px;
+    }
+
+    .admin-nav-link span {
+        display: none;
+    }
+
+    .admin-nav-link i {
+        margin-right: 0;
+        font-size: 18px;
+    }
+
+    .admin-logo {
+        font-size: 0;
+        text-align: center;
+    }
+
+    .admin-logo::before {
+        content: "S";
+        font-size: 20px;
+    }
+
+    .admin-subtitle {
+        display: none;
+    }
+
+    .admin-nav-title {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 80px;
+    }
+
+    .artist-header {
+        flex-direction: column;
+    }
+
+    .artist-photo {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+    }
+
+    .artist-name {
+        font-size: 32px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-sidebar {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .admin-header {
+        padding: 16px;
+    }
+
+    .admin-content {
+        padding: 16px;
+    }
+
+    .artist-actions {
+        flex-wrap: wrap;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .info-row {
+        flex-direction: column;
+    }
+
+    .info-label {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+
+    .song-stats {
+        flex-direction: column;
+        gap: 8px;
     }
 }

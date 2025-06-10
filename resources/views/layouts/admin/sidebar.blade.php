@@ -23,7 +23,8 @@
             <span>Bài hát</span>
             <span class="badge">1,234</span>
         </a>
-        <a href="#" class="admin-nav-link">
+        <a href={{ route('admin.artists.index') }}
+            class='{{ request()->is('admin/artists*') ? 'admin-nav-link active' : 'admin-nav-link' }}'>
             <i class="bi bi-person-circle"></i>
             <span>Nghệ sĩ</span>
             <span class="badge">156</span>

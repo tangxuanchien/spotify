@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('artists', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('cloudinary_upload_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('slug');
             $table->string('name');
             $table->text('description');
-            $table->integer('monthly_listeners');
-            $table->integer('followers');
-            $table->string('image_url');
+            $table->integer('monthly_listeners')->nullable();
+            $table->integer('followers')->nullable;
             $table->timestamps();
         });
     }
