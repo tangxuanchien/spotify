@@ -8,15 +8,14 @@
                 <p>Điền thông tin chi tiết để thêm nghệ sĩ</p>
             </div>
 
-            <form action={{ route('admin.artists.update', $artist->id) }} method="POST"
-                enctype="multipart/form-data">
+            <form action={{ route('admin.artists.update', $artist->id) }} method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
                 <div class="form-row">
                     <div class="form-group">
                         <label for="songTitle" class="form-label required">Tên nghệ sĩ</label>
-                        <input type="text" class="form-control" placeholder="Nhập tên nghệ sĩ"
-                            value="{{ $artist->name }}" name="name" required>
+                        <input type="text" class="form-control" placeholder="Nhập tên nghệ sĩ" value="{{ $artist->name }}"
+                            name="name" required>
                     </div>
                     <div class="form-group">
                         <label for="songTitle" class="form-label required">Slug</label>
@@ -28,28 +27,21 @@
                     <label for="description" class="form-label">Mô tả</label>
                     <textarea class="form-control" name="description" rows="3" placeholder="Mô tả về bài hát, câu chuyện đằng sau...">{{ $artist->description }}</textarea>
                 </div>
-                <div class="form-group">
-                    <label for="description" class="form-label">Ảnh trước</label>
-                    <img src="{{ $artist->cloudinary_upload->url }}" alt="Artist Image" class="previous-image">
-                </div>
-                <div class="form-group">
-                    <label for="description" class="form-label">Ảnh thay thế</label>
-                    <input type="file" accept="image/*" name="image_url" id="image_url">
-                    <img id="previewImage" src="" alt="Ảnh xem trước" class="preview-image">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="description" class="form-label">Ảnh trước</label>
+                        <img src="{{ $artist->cloudinary_upload->url }}" alt="Artist Image" class="previous-image">
+                    </div>
+                    <div class="form-group">
+                        <label for="description" class="form-label">Ảnh thay thế</label>
+                        <img id="previewImage" src="" alt="Ảnh xem trước" class="preview-image">
+                        <input type="file" accept="image/*" name="image_url" id="image_url">
+                    </div>
                 </div>
 
                 <x-error />
-                <div class="form-actions">
-                    <button type="button" class="btn btn-secondary">
-                        <i class="bi bi-x-circle"></i> Hủy
-                    </button>
-                    <button type="button" class="btn btn-secondary">
-                        <i class="bi bi-save"></i> Lưu nháp
-                    </button>
-                    <button type="submit" class="btn btn-primary">
-                        <i class="bi bi-check-circle"></i> Cập nhật nghệ sĩ
-                    </button>
-                </div>
+
+                <x-admin.form-actions>Cập nhật nghệ sĩ</x-admin.form-actions>
             </form>
         </div>
     </div>

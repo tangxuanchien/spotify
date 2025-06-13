@@ -110,10 +110,15 @@ class ArtistController extends Controller
      */
     public function destroy(string $id)
     {
-        $artist = Artist::with('cloudinary_upload')->find($id);
-        Cloudinary::destroy($artist->cloudinary_upload->public_id);
-        CloudinaryUpload::destroy($artist->cloudinary_upload_id);
-        Artist::destroy($id);
+        $artist = Artist::with('cloudinary_upload')->findOrFail($id);
+
+        if($artist->cloudinary_upload){
+            Cloudinary::destroy($artist->cloudinary_upload->public_id);
+
+            $artist->cloudinary_upload->delete();
+        }
+
+        $artist->delete();
         return back();
     }
 }

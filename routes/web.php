@@ -8,6 +8,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\SongController;
 use App\Http\Controllers\Admin\SongController as AdminSongController;
+use App\Http\Controllers\Admin\AlbumController as AdminAlbumController;
 use App\Http\Controllers\Admin\ArtistController as AdminArtistController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,10 +43,12 @@ Route::name('admin.')->prefix('admin')->middleware('admin')->group(function () {
     Route::post('/login', [SessionController::class, 'storeAdmin'])->name('session.store')->withoutMiddleware('admin');
     Route::post('/logout', [SessionController::class, 'destroyAdmin'])->name('session.destroy');
     Route::get('', [AdminController::class, 'index'])->name('index');
+    Route::post('/songs/pause-release/{song}', [AdminSongController::class, 'pauseRelease'])->name('songs.pauseRelease');
 
     Route::resources([
         'songs' => AdminSongController::class,
         'artists' => AdminArtistController::class,
+        'albums' => AdminAlbumController::class
     ]);
 });
 

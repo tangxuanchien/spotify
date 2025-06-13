@@ -19,7 +19,6 @@ class SongController extends Controller
     public function show(string $id)
     {
         $song = Song::with(['artist', 'genre'])->find($id);
-        $song->image_url = asset(Storage::url('images/musics/' . $song->image_url));
         return view('admin.songs.show', compact('song'));
     }
 

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->integer('monthly_listeners')->nullable();
-            $table->integer('followers')->nullable;
+            $table->integer('followers')->nullable();
             $table->timestamps();
         });
     }

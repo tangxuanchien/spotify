@@ -8,28 +8,28 @@
         <div class="row mb-5">
             <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
                 <div class="card">
-                    <img src="{{ asset('assets/images/playlists/hot-hit-vn.jpg') }}" alt="Playlist">
+                    <img src="#" alt="Playlist">
                     <div class="card-title">Nhạc Việt Hot</div>
                     <div class="card-text">Những bài hát Việt Nam thịnh hành nhất hiện nay</div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
                 <div class="card">
-                    <img src="{{ $image }}" alt="Playlist">
+                    <img src="#" alt="Playlist">
                     <div class="card-title">Chill & Relax</div>
                     <div class="card-text">Thư giãn với những giai điệu nhẹ nhàng</div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
                 <div class="card">
-                    <img src="{{ asset('assets/images/playlists/hiphop-viet.jpg') }}" alt="Playlist">
+                    <img src="#" alt="Playlist">
                     <div class="card-title">Bài hát đã thích</div>
                     <div class="card-text">Tuyển tập những bài hát yêu thích của bạn</div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
                 <div class="card">
-                    <img src="{{ asset('assets/images/playlists/indie.jpg') }}" alt="Playlist">
+                    <img src="#" alt="Playlist">
                     <div class="card-title">Gần đây</div>
                     <div class="card-text">Những bài hát bạn nghe gần đây</div>
                 </div>
@@ -141,9 +141,9 @@
 
         <div class="row mb-5">
             @foreach ($artists as $artist)
-                <x-artist src="{{ $artist['image_url'] }}"
-                    href="/artist/{{ $artist['slug'] }}">
-                    {{ $artist['name'] }}
+                <x-artist src="{{ $artist->cloudinary_upload->url }}"
+                    href="/artist/{{ $artist->slug }}">
+                    {{ $artist->name }}
                 </x-artist>
             @endforeach
         </div>

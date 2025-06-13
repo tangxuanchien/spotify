@@ -760,7 +760,7 @@ body {
 .song-cover {
     width: 240px;
     height: 240px;
-    border-radius: 8px;
+    border-radius: 50%;
     overflow: hidden;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
     flex-shrink: 0;
@@ -1292,7 +1292,7 @@ body {
 .preview-image {
     max-height: 100px;
     display: none;
-    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 .previous-image {
@@ -1448,27 +1448,6 @@ body {
     text-align: center;
 }
 
-.song-cover {
-    width: 48px;
-    height: 48px;
-    border-radius: 4px;
-    margin-right: 16px;
-}
-
-.song-info {
-    flex-grow: 1;
-}
-
-.song-title {
-    font-weight: 600;
-    margin-bottom: 4px;
-}
-
-.song-meta {
-    color: var(--text-secondary);
-    font-size: 12px;
-}
-
 .song-stats {
     display: flex;
     align-items: center;
@@ -1541,16 +1520,6 @@ body {
     font-size: 18px;
     background: linear-gradient(45deg, var(--card-hover), var(--divider));
     border-radius: 8px;
-}
-
-.status-active {
-    background-color: rgba(29, 185, 84, 0.2);
-    color: var(--success);
-}
-
-.status-inactive {
-    background-color: rgba(226, 33, 52, 0.2);
-    color: var(--danger);
 }
 
 .status-verified {

@@ -27,33 +27,39 @@
                 <tbody>
                     @foreach ($songs as $song)
                         <tr>
-                            <td><img src="{{ $song->image_url }}" alt="Song" class="user-avatar-small"></td>
+                            <td><img src="{{ $song->cloudinary_upload->url }}" alt="Song" class="user-avatar-small"></td>
                             <td>
                                 <div class="d-flex align-items-center">
                                     <div>
-                                        <div style="font-weight: 600;">{{ $song['name'] }}</div>
-                                        <div style="font-size: 12px; color: var(--text-secondary);">ID: #{{ $song['id'] }}
+                                        <div style="font-weight: 600;">{{ $song->name }}</div>
+                                        <div style="font-size: 12px; color: var(--text-secondary);">ID: #{{ $song->id }}
                                         </div>
                                     </div>
                                 </div>
                             </td>
                             <td>{{ $song->artist->name }}</td>
-                            <td>{{ $song['release_year'] }}</td>
-                            <td><span class="status-badge status-inactive">{{ $song['duration'] }}</span></td>
-                            <td><span class="status-badge status-active">Hoạt động</span></td>
+                            <td>{{ $song->release_year }}</td>
+                            <td><span class="status-badge status-inactive">{{ $song->duration }}</span></td>
+                            <td><span class="status-badge {{ $song->status['color'] }}">{{ $song->status['name'] }}</span></td>
                             <td>
-                                <button class="action-btn" title="Xem chi tiết">
-                                    <a href={{ route('admin.songs.show', [$song['id']]) }}><i
-                                            class="bi bi-eye text-light"></i></a>
-                                </button>
-                                <button class="action-btn" title="Chỉnh sửa">
-                                    <a href={{ route('admin.songs.edit', [$song['id']]) }}><i
-                                            class="bi bi-pencil text-light"></i></a>
-                                </button>
-                                <button class="action-btn danger" title="Xóa">
-                                    <a href={{ route('admin.songs.show', [$song['id']]) }}><i
-                                            class="bi bi-trash text-danger"></i></a>
-                                </button>
+                                <div class="d-flex">
+                                    <button class="action-btn" title="Xem chi tiết">
+                                        <a href={{ route('admin.songs.show', [$song['id']]) }}><i
+                                                class="bi bi-eye text-light"></i></a>
+                                    </button>
+                                    <button class="action-btn" title="Chỉnh sửa">
+                                        <a href={{ route('admin.songs.edit', [$song['id']]) }}><i
+                                                class="bi bi-pencil text-light"></i></a>
+                                    </button>
+                                    <form action={{ route('admin.songs.destroy', $song->id) }} method="POST"
+                                        onsubmit="return confirm('Bạn chắc chắn muốn xóa?')">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="action-btn danger" type="submit" title="Xóa">
+                                            <i class="bi bi-trash text-danger"></i>
+                                        </button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                     @endforeach

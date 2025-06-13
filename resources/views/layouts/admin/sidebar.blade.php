@@ -5,7 +5,7 @@
     <div class="admin-nav-section">
         <div class="admin-nav-title">Tổng quan</div>
         <a href={{ route('admin.index') }}
-        class='{{ request()->is('admin') ? 'admin-nav-link active' : 'admin-nav-link' }}'>
+            class='{{ request()->is('admin') ? 'admin-nav-link active' : 'admin-nav-link' }}'>
             <i class="bi bi-speedometer2"></i>
             <span>Bảng điều khiển</span>
         </a>
@@ -21,18 +21,19 @@
             class='{{ request()->is('admin/songs*') ? 'admin-nav-link active' : 'admin-nav-link' }}'>
             <i class="bi bi-music-note-beamed"></i>
             <span>Bài hát</span>
-            <span class="badge">1,234</span>
+            <span class="badge">{{ $total_songs }}</span>
         </a>
         <a href={{ route('admin.artists.index') }}
             class='{{ request()->is('admin/artists*') ? 'admin-nav-link active' : 'admin-nav-link' }}'>
             <i class="bi bi-person-circle"></i>
             <span>Nghệ sĩ</span>
-            <span class="badge">156</span>
+            <span class="badge">{{ $total_artists }}</span>
         </a>
-        <a href="#" class="admin-nav-link">
+        <a href={{ route('admin.albums.index') }}
+            class='{{ request()->is('admin/albums*') ? 'admin-nav-link active' : 'admin-nav-link' }}'>
             <i class="bi bi-disc"></i>
             <span>Album</span>
-            <span class="badge">89</span>
+            <span class="badge">{{ $total_albums }}</span>
         </a>
         <a href="#" class="admin-nav-link">
             <i class="bi bi-collection-play"></i>
@@ -50,17 +51,17 @@
         <a href="#" class="admin-nav-link">
             <i class="bi bi-people"></i>
             <span>Tất cả người dùng</span>
-            <span class="badge">8,459</span>
+            <span class="badge">{{ $total_users }}</span>
         </a>
         <a href="#" class="admin-nav-link">
             <i class="bi bi-star"></i>
             <span>Premium</span>
-            <span class="badge">2,341</span>
+            <span class="badge">0</span>
         </a>
         <a href="#" class="admin-nav-link">
             <i class="bi bi-exclamation-triangle"></i>
             <span>Báo cáo</span>
-            <span class="badge bg-danger">12</span>
+            <span class="badge bg-danger">10</span>
         </a>
     </div>
 

@@ -5,7 +5,7 @@
         <div class="song-details-container">
             <div class="song-header">
                 <div class="song-cover">
-                    <img src={{ $song->image_url }} alt="Song Cover">
+                    <img src={{ $song->cloudinary_upload->url }} alt="Song Cover">
                 </div>
                 <div class="song-info">
                     <div class="song-meta">
@@ -16,23 +16,32 @@
                             <span><i class="bi bi-disc"></i> Single • {{ $song->release_year }}</span>
                             <span><i class="bi bi-clock"></i> {{ $song->duration }}</span>
                             <span><i class="bi bi-music-note"></i> {{ $song->genre->name }}</span>
-                            <span><span class="status-badge status-active">Hoạt động</span></span>
+                            <span class="status-badge {{ $song->status['color'] }}">{{ $song->status['name'] }}</span>
                         </div>
                     </div>
 
                     <div class="song-actions">
-                        <button class="btn btn-primary">
+                        <a href={{ route('admin.songs.edit', $song->id) }} class="btn btn-primary">
                             <i class="bi bi-pencil"></i> Chỉnh sửa
-                        </button>
+                        </a>
                         <button class="btn btn-secondary">
                             <i class="bi bi-eye"></i> Xem trên trang chủ
                         </button>
-                        <button class="btn btn-secondary">
-                            <i class="bi bi-pause-circle"></i> Tạm dừng phát hành
-                        </button>
-                        <button class="btn btn-danger">
-                            <i class="bi bi-trash"></i> Xóa bài hát
-                        </button>
+                        <form action={{ route('admin.songs.pauseRelease', $song->id) }} method="POST"
+                            onsubmit="return confirm('Bạn chắc chắn muốn dừng phát hành?')">
+                            @csrf
+                            <button class="btn btn-secondary" type="submit">
+                                <i class="bi bi-pause-circle"></i> Tạm dừng phát hành
+                            </button>
+                        </form>
+                        <form action={{ route('admin.songs.destroy', $song->id) }} method="POST"
+                            onsubmit="return confirm('Bạn chắc chắn muốn xóa?')">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger">
+                                <i class="bi bi-trash"></i> Xóa bài hát
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -46,7 +55,7 @@
                             <i class="bi bi-play-circle"></i>
                         </div>
                     </div>
-                    <div class="stat-value">1,245,678</div>
+                    <div class="stat-value">{{ number_format($song->listens) }}</div>
                     <div class="stat-change positive">
                         <i class="bi bi-arrow-up"></i>
                         <span>+12.5% so với tháng trước</span>
@@ -60,7 +69,7 @@
                             <i class="bi bi-heart"></i>
                         </div>
                     </div>
-                    <div class="stat-value">87,456</div>
+                    <div class="stat-value">{{ number_format($song->likes) }}</div>
                     <div class="stat-change positive">
                         <i class="bi bi-arrow-up"></i>
                         <span>+8.2% so với tháng trước</span>
@@ -153,7 +162,7 @@
                         </div>
                         <div class="info-row">
                             <div class="info-label">Định dạng</div>
-                            <div class="info-value">MP3, 320kbps</div>
+                            <div class="info-value">MP3</div>
                         </div>
                         <div class="info-row">
                             <div class="info-label">Kích thước file</div>
@@ -169,7 +178,7 @@
                         </div>
                         <div class="info-row">
                             <div class="info-label">Trạng thái</div>
-                            <div class="info-value"><span class="status-badge status-active">Hoạt động</span>
+                            <div class="info-value"><span class="status-badge {{$song->status['color']}}">{{$song->status['name']}}</span>
                             </div>
                         </div>
                         <div class="info-row">
